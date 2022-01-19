@@ -11,10 +11,12 @@ public class SnakeController : MonoBehaviour
     [Tooltip("indicates how many steps does in one second")]
     [SerializeField] float stepFrequency;
     [SerializeField] GameObject snakeBodyPart;
+    [SerializeField] GameObject conectorPrefab;
     [SerializeField] int snakeInitialSize;
     [SerializeField] float snakeSize;
 
     List<Transform> snakeBody = new List<Transform>();
+    List<Transform> snakeConectors = new List<Transform>();
     Vector3 movementDirection;
     Vector3 lastMovementDirection;
     bool isAlive;
@@ -69,14 +71,14 @@ public class SnakeController : MonoBehaviour
         snakeHead.position += movementDirection.normalized * stepDistance;
         lastMovementDirection = movementDirection;
 
-        foreach (Transform part in snakeBody)
+        for (int i = 1; i < snakeBody.Count; i++)
         {
-            if (part == snakeBody[0])
-                continue;
-
-            Vector3 temp = part.position;
-            part.position = lastPos;
+            Vector3 temp = snakeBody[i].position;
+            snakeBody[i].position = lastPos;
             lastPos = temp;
+
+            Vector3 tailDirection = (snakeBody[i - 1].position - snakeBody[i].position).normalized;
+            snakeConectors[i - 1].position = snakeBody[i].position + tailDirection * (snakeSize / 2);
         }
     }
 
@@ -85,6 +87,10 @@ public class SnakeController : MonoBehaviour
         Transform part = Instantiate(snakeBodyPart, snakeBody[snakeBody.Count - 1].position, Quaternion.identity).transform;
         part.SetParent(this.transform);
         snakeBody.Add(part);
+
+        Transform connector = Instantiate(conectorPrefab, snakeBody[snakeBody.Count - 1].position, Quaternion.identity).transform;
+        connector.SetParent(this.transform);
+        snakeConectors.Add(connector);
     }
 
     public void StartMoving()
