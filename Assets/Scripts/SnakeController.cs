@@ -20,6 +20,8 @@ public class SnakeController : MonoBehaviour
     Vector3 movementDirection;
     Vector3 lastMovementDirection;
     bool isAlive;
+    [HideInInspector]
+    public bool invincible;
 
     public enum Directions
     {
@@ -31,10 +33,11 @@ public class SnakeController : MonoBehaviour
 
     private void Awake()
     {
-        if(sharedInstance == null)
+        if (sharedInstance == null)
         {
             sharedInstance = this;
-        }else
+        }
+        else
         {
             Destroy(this.gameObject);
         }
@@ -42,8 +45,10 @@ public class SnakeController : MonoBehaviour
 
     private void Start()
     {
+        invincible = true;
         SetUpSnake();
         StartMoving();
+        Invoke("CanDie", (snakeInitialSize * stepFrequency));
     }
 
     private void SetUpSnake()
@@ -53,8 +58,13 @@ public class SnakeController : MonoBehaviour
         for (int i = 1; i < snakeInitialSize; i++)
         {
             AddBodyPart();
-            snakeBody[i].position = snakeBody[0].position + (new Vector3(0,-snakeSize,0) * i);
         }
+    }
+
+    private void CanDie()
+    {
+        invincible = false;
+        Debug.Log("listo");
     }
 
     private void Step()

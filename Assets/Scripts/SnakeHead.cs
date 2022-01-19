@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class SnakeHead : MonoBehaviour
 {
-    [SerializeField] SnakeController snakeController;
     [SerializeField] string appleTag, bodyPartTag;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(appleTag))
         {
-            snakeController.AddBodyPart();
+            SnakeController.sharedInstance.AddBodyPart();
             Destroy(collision.gameObject);
-        }else if (collision.gameObject.CompareTag(bodyPartTag))
+        }else if (collision.gameObject.CompareTag(bodyPartTag) && SnakeController.sharedInstance.invincible == false)
         {
-            snakeController.GameOver();
+            SnakeController.sharedInstance.GameOver();
         }
     }
 }
