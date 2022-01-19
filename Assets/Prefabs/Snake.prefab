@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fd879462c35e146912e5710075f907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeController: {fileID: 2546933674219512582}
   appleTag: Apple
   bodyPartTag: BodyPart
 --- !u!1 &2546933674219512632
@@ -176,3 +175,5 @@ MonoBehaviour:
   conectorPrefab: {fileID: 434933653723928239, guid: ca0f18557711f36429a17294a7449657, type: 3}
   snakeInitialSize: 4
   snakeSize: 0.8
+  spawnParticleEffectTag: Explotion1
+  invincible: 0

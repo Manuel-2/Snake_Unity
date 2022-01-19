@@ -14,6 +14,7 @@ public class SnakeController : MonoBehaviour
     [SerializeField] GameObject conectorPrefab;
     [SerializeField] int snakeInitialSize;
     [SerializeField] float snakeSize;
+    [SerializeField] string spawnParticleEffectTag;
 
     List<Transform> snakeBody = new List<Transform>();
     List<Transform> snakeConectors = new List<Transform>();
@@ -45,26 +46,26 @@ public class SnakeController : MonoBehaviour
 
     private void Start()
     {
-        invincible = true;
         SetUpSnake();
         StartMoving();
-        Invoke("CanDie", (snakeInitialSize * stepFrequency));
     }
 
     private void SetUpSnake()
     {
         isAlive = true;
-        snakeBody.Add(snakeHead.transform);
+        invincible = true;
+        snakeBody.Add(snakeHead);
         for (int i = 1; i < snakeInitialSize; i++)
         {
             AddBodyPart();
         }
+        // particles
+        ParticlesManager.sharedInstance.SpawnParticleEffect(spawnParticleEffectTag, snakeHead.position);
     }
 
     private void CanDie()
     {
         invincible = false;
-        Debug.Log("listo");
     }
 
     private void Step()
@@ -108,6 +109,7 @@ public class SnakeController : MonoBehaviour
         setDirection(Directions.up);
         lastMovementDirection = Vector3.up;
         InvokeRepeating("Step", stepFrequency, stepFrequency);
+        Invoke("CanDie", (snakeInitialSize * stepFrequency));
     }
 
     public void GameOver()
