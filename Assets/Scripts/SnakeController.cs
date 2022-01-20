@@ -154,16 +154,4 @@ public class SnakeController : MonoBehaviour
                 break;
         }
     }
-
-    public void SetUpSnakeWhitDefaultConfiguration()
-    {
-        GameObject head = new GameObject();
-        head.name = "thehead";
-        head.transform.SetParent(this.transform);
-        snakeHead = head.transform;
-        stepDistance = 1;
-        stepFrequency = 0.3f;
-        snakeBodyPart = head;
-        snakeInitialSize = 5;
-    }
 }
