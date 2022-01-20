@@ -73,10 +73,6 @@ public class SnakeController : MonoBehaviour
         float frequency = 0.5f -(level - 1f) / 10f;
         return frequency;
     }
-    public float CalculateStepFrequency(int maxLevel,int level)
-    {
-        return maxLevel - ((level - 1) / 10);
-    }
 
     private void CanDie()
     {
