@@ -18,9 +18,9 @@ public class ParticlesManager : MonoBehaviour
         }
     }
 
-    public void SpawnParticleEffect(string itemTag, Vector3 position)
+    public void SpawnParticleEffect(string particleName, Vector3 position)
     {
-        var particles = ObjectPooler.sharedInstance.GetItem(itemTag, position, Quaternion.identity);
+        var particles = ObjectPooler.sharedInstance.GetItem(particleName, position, Quaternion.identity);
         var sis = particles.GetComponent<ParticleSystem>();
         sis.Play();
 

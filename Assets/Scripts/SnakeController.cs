@@ -99,9 +99,7 @@ public class SnakeController : MonoBehaviour
     {
         AddBodyPart();
         GameManager.sharedInstance.AddPoints();
-        // TODO: Get this value form the configuration
-        int ApplesPerRound = 1;
-        GameManager.sharedInstance.GenerateNewRoundOfApples(ApplesPerRound);
+        GameManager.sharedInstance.GenerateNewRoundOfApples(1);
     }
 
     private void AddBodyPart()

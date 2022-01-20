@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int pointPerApple;
     [SerializeField] string playerHighScoreKey;
     [SerializeField] Vector2 minGameArea, maxGameArea;
+    [SerializeField] string appleDestroyExplotionEffectName;
     [Header("UI Components")]
     [SerializeField] string scorePrefix;
     [SerializeField] TextMeshProUGUI inGameScoreTextComponent;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(playerHighScoreKey, score);
         }
+        CleanPlayArea();
 
         //Update GameOver UI
         endGameScoreTextComponent.text = $"{scorePrefix} {score}";
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
         score = 0;
 
         //TODO: get this value from the playerConfiguration
-        int amountOfApples = 1;
+        int amountOfApples = 5;
         GenerateNewRoundOfApples(amountOfApples);
 
         //update UI
@@ -112,5 +114,15 @@ public class GameManager : MonoBehaviour
         int posY = Random.Range((int)min.y, (int)max.y + 1);
 
         return new Vector3(posX, posY, 0);
+    }
+
+    public void CleanPlayArea()
+    {
+        var Apples = GameObject.FindGameObjectsWithTag(appleTag);
+        foreach (GameObject Apple in Apples)
+        {
+            ParticlesManager.sharedInstance.SpawnParticleEffect(appleDestroyExplotionEffectName, Apple.transform.position);
+            ObjectPooler.sharedInstance.ReturnItem(Apple);
+        }
     }
 }

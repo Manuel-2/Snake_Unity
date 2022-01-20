@@ -4616,6 +4616,7 @@ MonoBehaviour:
   playerHighScoreKey: HighScoreTestKey01
   minGameArea: {x: 0, y: 0}
   maxGameArea: {x: 20, y: 11}
+  appleDestroyExplotionEffectName: Explotion1
   scorePrefix: 'Score:'
   inGameScoreTextComponent: {fileID: 1156201170}
   endGameScoreTextComponent: {fileID: 2140427582}
