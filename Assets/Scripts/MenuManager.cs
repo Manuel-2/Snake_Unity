@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager sharedInstance;
+
     [SerializeField] Animator menuAnimator;
     [SerializeField] string playGameAnimationTrigger;
     [SerializeField] string returnMainMenuTrigger;
@@ -12,8 +15,34 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Animator settingsAnimator;
     [SerializeField] string toogleSettingsBool;
     bool showSettings = false;
+    [Header("PlayerSettings")]
+    public string playerAppleAmountConfigkey;
+    [SerializeField] int minAppleAmount, maxAppleAmount;
+    [SerializeField] TextMeshProUGUI AppleAmountDisplayText;
+    [Space]
+    public string playerGameSpeedConfigkey;
+    public int minGameSpeed, maxGameSpeed;
+    public int defaultGameSpeed;
+    public float maxFrequency;
+    [SerializeField] TextMeshProUGUI gameSpeedDisplayText;
 
-    
+    private void Awake()
+    {
+        if (sharedInstance == null)
+        {
+            sharedInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        UpdateGameSettingsInfoDisplay();
+    }
+
     public void PlayButtonPresed()
     {
         menuAnimator.SetTrigger(playGameAnimationTrigger);
@@ -43,5 +72,68 @@ public class MenuManager : MonoBehaviour
     {
         showSettings = !showSettings;
         settingsAnimator.SetBool(toogleSettingsBool, showSettings);
+    }
+
+    public void IncreaseAppleAmount()
+    {
+        int AppleAmount = PlayerPrefs.GetInt(playerAppleAmountConfigkey, minAppleAmount);
+        AppleAmount++;
+        if (AppleAmount > maxAppleAmount)
+        {
+            AppleAmount = minAppleAmount;
+        }
+        PlayerPrefs.SetInt(playerAppleAmountConfigkey, AppleAmount);
+
+        //Update UI
+        AppleAmountDisplayText.text = AppleAmount.ToString();
+    }
+    public void DecreaseAppleAmount()
+    {
+        int AppleAmount = PlayerPrefs.GetInt(playerAppleAmountConfigkey, minAppleAmount);
+        AppleAmount--;
+        if (AppleAmount < minAppleAmount)
+        {
+            AppleAmount = maxAppleAmount;
+        }
+        PlayerPrefs.SetInt(playerAppleAmountConfigkey, AppleAmount);
+
+        //Update UI
+        AppleAmountDisplayText.text = AppleAmount.ToString();
+    }
+
+    public void IncreaseGameSpeed()
+    {
+        int gameSpeed = PlayerPrefs.GetInt(playerGameSpeedConfigkey, defaultGameSpeed);
+        gameSpeed++;
+        if (gameSpeed > maxGameSpeed)
+        {
+            gameSpeed = minGameSpeed;
+        }
+        PlayerPrefs.SetInt(playerGameSpeedConfigkey, gameSpeed);
+
+        //Update UI
+        gameSpeedDisplayText.text = gameSpeed.ToString();
+    }
+    public void DecreaseGameSpeed()
+    {
+        int gameSpeed = PlayerPrefs.GetInt(playerGameSpeedConfigkey, defaultGameSpeed);
+        gameSpeed--;
+        if (gameSpeed < minGameSpeed)
+        {
+            gameSpeed = maxGameSpeed;
+        }
+        PlayerPrefs.SetInt(playerGameSpeedConfigkey, gameSpeed);
+
+        //Update UI
+        gameSpeedDisplayText.text = gameSpeed.ToString();
+    }
+
+    private void UpdateGameSettingsInfoDisplay()
+    {
+        int AppleAmount = PlayerPrefs.GetInt(playerAppleAmountConfigkey, minAppleAmount);
+        AppleAmountDisplayText.text = AppleAmount.ToString();
+
+        int gameSpeed = PlayerPrefs.GetInt(playerGameSpeedConfigkey, defaultGameSpeed);
+        gameSpeedDisplayText.text = gameSpeed.ToString();
     }
 }

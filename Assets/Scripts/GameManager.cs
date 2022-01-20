@@ -70,8 +70,7 @@ public class GameManager : MonoBehaviour
         Instantiate(snakePrefab, snakeSpawn.position, Quaternion.identity);
         score = 0;
 
-        //TODO: get this value from the playerConfiguration
-        int amountOfApples = 5;
+        int amountOfApples = PlayerPrefs.GetInt(MenuManager.sharedInstance.playerAppleAmountConfigkey);
         GenerateNewRoundOfApples(amountOfApples);
 
         //update UI

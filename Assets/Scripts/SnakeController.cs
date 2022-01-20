@@ -61,8 +61,21 @@ public class SnakeController : MonoBehaviour
         {
             AddBodyPart();
         }
+        // Set Speed
+        stepFrequency = CalculateStepFrequency();
         // particles
         ParticlesManager.sharedInstance.SpawnParticleEffect(spawnParticleEffectTag, snakeHead.position);
+    }
+
+    public float CalculateStepFrequency()
+    {
+        int level = PlayerPrefs.GetInt(MenuManager.sharedInstance.playerGameSpeedConfigkey, MenuManager.sharedInstance.defaultGameSpeed);
+        float frequency = 0.5f -(level - 1f) / 10f;
+        return frequency;
+    }
+    public float CalculateStepFrequency(int maxLevel,int level)
+    {
+        return maxLevel - ((level - 1) / 10);
     }
 
     private void CanDie()

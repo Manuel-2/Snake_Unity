@@ -6,15 +6,15 @@ using UnityEngine.TestTools;
 
 public class GameTest
 {
-    
+
     [UnityTest]
     public IEnumerator GameManagerCanGenerateRamdomPositionsForApples()
     {
         // Arrange
         GameObject manager = new GameObject();
         var controller = manager.AddComponent<GameManager>();
-        Vector2 min = new Vector2(0,0);
-        Vector2 max = new Vector2(22,15);
+        Vector2 min = new Vector2(0, 0);
+        Vector2 max = new Vector2(22, 15);
 
         // Act
         int corrdinatesAmount = 100;
@@ -22,10 +22,10 @@ public class GameTest
 
         for (int i = 0; i < corrdinatesAmount; i++)
         {
-            Vector3 GeneratedPosition = controller.GenerateRandomPosition(min,max);
-            if(GeneratedPosition.x >= min.x && GeneratedPosition.x <= max.x)
+            Vector3 GeneratedPosition = controller.GenerateRandomPosition(min, max);
+            if (GeneratedPosition.x >= min.x && GeneratedPosition.x <= max.x)
             {
-                if(GeneratedPosition.y >= min.y && GeneratedPosition.y <= max.y)
+                if (GeneratedPosition.y >= min.y && GeneratedPosition.y <= max.y)
                 {
                     correctCorrdinates++;
                 }
@@ -37,4 +37,5 @@ public class GameTest
         Assert.AreEqual(correctCorrdinates, corrdinatesAmount); ;
 
     }
+
 }

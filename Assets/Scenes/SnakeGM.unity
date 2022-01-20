@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 73370405}
   - component: {fileID: 73370404}
   m_Layer: 5
-  m_Name: Info Display Text (TMP)
+  m_Name: ApplesAmout Info Display Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1553,7 +1553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 414782596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2147345273}
+        m_TargetAssemblyTypeName: MenuManager, Scripts
+        m_MethodName: IncreaseAppleAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &414782596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,7 +1885,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 466275371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2147345273}
+        m_TargetAssemblyTypeName: MenuManager, Scripts
+        m_MethodName: DecreaseGameSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &466275371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2989,7 +3013,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1069380865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2147345273}
+        m_TargetAssemblyTypeName: MenuManager, Scripts
+        m_MethodName: DecreaseAppleAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1069380865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3851,7 +3887,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1417961276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2147345273}
+        m_TargetAssemblyTypeName: MenuManager, Scripts
+        m_MethodName: IncreaseGameSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1417961276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,7 +3950,7 @@ GameObject:
   - component: {fileID: 1452661176}
   - component: {fileID: 1452661175}
   m_Layer: 5
-  m_Name: Info Display Text (TMP)
+  m_Name: GameSpeed Info Display Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6151,3 +6199,13 @@ MonoBehaviour:
   retryGameTrigger: ToPlay
   settingsAnimator: {fileID: 701773615}
   toogleSettingsBool: showSettings
+  playerAppleAmountConfigkey: PlayerSettingsAppleAmountTestKey01
+  minAppleAmount: 1
+  maxAppleAmount: 10
+  AppleAmountDisplayText: {fileID: 73370404}
+  playerGameSpeedConfigkey: PlayerSettingsGameSpeedTestKey01
+  minGameSpeed: 1
+  maxGameSpeed: 5
+  defaultGameSpeed: 3
+  maxFrequency: 0.5
+  gameSpeedDisplayText: {fileID: 1452661175}
