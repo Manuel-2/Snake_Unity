@@ -10,8 +10,8 @@ public class SnakeHead : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(appleTag))
         {
-            SnakeController.sharedInstance.AddBodyPart();
-            Destroy(collision.gameObject);
+            SnakeController.sharedInstance.EatApple();
+            ObjectPooler.sharedInstance.ReturnItem(collision.gameObject);
         }else if (collision.gameObject.CompareTag(bodyPartTag) && SnakeController.sharedInstance.invincible == false)
         {
             SnakeController.sharedInstance.GameOver();

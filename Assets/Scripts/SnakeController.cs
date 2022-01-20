@@ -93,7 +93,16 @@ public class SnakeController : MonoBehaviour
         }
     }
 
-    public void AddBodyPart()
+    public void EatApple()
+    {
+        AddBodyPart();
+        GameManager.sharedInstance.AddPoints();
+        // TODO: Get this value form the configuration
+        int ApplesPerRound = 1;
+        GameManager.sharedInstance.GenerateNewRoundOfApples(ApplesPerRound);
+    }
+
+    private void AddBodyPart()
     {
         Transform part = Instantiate(snakeBodyPart, snakeBody[snakeBody.Count - 1].position, Quaternion.identity).transform;
         part.SetParent(this.transform);
@@ -115,6 +124,9 @@ public class SnakeController : MonoBehaviour
     public void GameOver()
     {
         isAlive = false;
+        GameManager.sharedInstance.GameOver();
+        // call explotion effect
+        // for each explotino do screen shake
     }
 
     public void setDirection(Directions input)

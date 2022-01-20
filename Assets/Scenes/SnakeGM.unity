@@ -1160,7 +1160,7 @@ RectTransform:
   m_Children:
   - {fileID: 3473229}
   m_Father: {fileID: 701773613}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1604,7 +1604,7 @@ GameObject:
   - component: {fileID: 436323309}
   - component: {fileID: 436323308}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: High Score Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1790,7 +1790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466275368
 GameObject:
@@ -1941,7 +1941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &478047708
 MonoBehaviour:
@@ -2431,7 +2431,6 @@ RectTransform:
   - {fileID: 2001254850}
   - {fileID: 1789513526}
   - {fileID: 1052174232}
-  - {fileID: 1822454031}
   - {fileID: 2098312929}
   - {fileID: 136634815}
   m_Father: {fileID: 2147345271}
@@ -3041,7 +3040,7 @@ GameObject:
   - component: {fileID: 1156201171}
   - component: {fileID: 1156201170}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3771,63 +3770,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256542201}
   m_CullTransparentMesh: 1
---- !u!1001 &1310554658
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.9316778
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.016959965
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318209, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 399319964003318222, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
-      propertyPath: m_Name
-      value: Explotion1 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
 --- !u!1 &1417961273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,7 +4138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1472970241
 MonoBehaviour:
@@ -4603,7 +4545,7 @@ Transform:
   m_Children:
   - {fileID: 894461798}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1690087599
 MonoBehaviour:
@@ -4620,6 +4562,8 @@ MonoBehaviour:
   itemsToPool:
   - prefabToPool: {fileID: 399319964003318222, guid: b4630ad5e42c62c4c818bc109982b1be, type: 3}
     amountToPool: 5
+  - prefabToPool: {fileID: 8699942055308333121, guid: 076301c0cea43fd42ac05ea6b7a2aa8b, type: 3}
+    amountToPool: 50
   pool: {fileID: 894461797}
 --- !u!1 &1710695453
 GameObject:
@@ -4650,7 +4594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1710695455
 MonoBehaviour:
@@ -4666,6 +4610,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakePrefab: {fileID: 2546933674219512632, guid: bde03863db9bb244684200cd677aa2d2, type: 3}
   snakeSpawn: {fileID: 108317887}
+  snakeContainerName: Snake(Clone)
+  appleTag: Apple
+  pointPerApple: 5
+  playerHighScoreKey: HighScoreTestKey01
+  minGameArea: {x: 0, y: 0}
+  maxGameArea: {x: 20, y: 11}
+  scorePrefix: 'Score:'
+  inGameScoreTextComponent: {fileID: 1156201170}
+  endGameScoreTextComponent: {fileID: 2140427582}
+  highScorePrefix: 'High Score:'
+  inGameHighScoreTextComponent: {fileID: 436323308}
+  endameHighScoreTextComponent: {fileID: 1941059345}
+  menuAnimator: {fileID: 2147345272}
+  gameOverAnimationTrigger: ToGameOver
+  score: 0
 --- !u!1 &1745316990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,18 +4820,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822454030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 701773613}
-  m_RootOrder: 3
+  m_Father: {fileID: 2001254850}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 206.75146}
-  m_SizeDelta: {x: 496.1, y: 89.83551}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822454032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,7 +4852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '* Click to start *'
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523af2607e254c34cbe20b04885c173f, type: 2}
   m_sharedMaterial: {fileID: -57534533849068711, guid: 523af2607e254c34cbe20b04885c173f, type: 2}
@@ -4920,8 +4879,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4930,9 +4889,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -30
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5152,7 +5111,7 @@ GameObject:
   - component: {fileID: 1941059346}
   - component: {fileID: 1941059345}
   m_Layer: 5
-  m_Name: HighScore Text (TMP)
+  m_Name: End High Score Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5437,14 +5396,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1822454031}
   m_Father: {fileID: 701773613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -265}
+  m_SizeDelta: {x: 348, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001254851
 MonoBehaviour:
@@ -5515,7 +5475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5772,14 +5732,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074791843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 10, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1456926932}
   - {fileID: 1067195862}
   - {fileID: 108317887}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098312928
 GameObject:
@@ -5811,7 +5771,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701773613}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5927,7 +5887,7 @@ GameObject:
   - component: {fileID: 2140427583}
   - component: {fileID: 2140427582}
   m_Layer: 5
-  m_Name: Score Text (TMP)
+  m_Name: End Score Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6186,7 +6146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuAnimator: {fileID: 2147345272}
   playGameAnimationTrigger: ToPlay
-  returnMainMenuTrigger: 
+  returnMainMenuTrigger: ToMainMenu
   retryGameTrigger: 
   settingsAnimator: {fileID: 701773615}
   toogleSettingsBool: showSettings

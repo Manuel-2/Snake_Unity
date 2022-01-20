@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakeHead: {fileID: 2546933673607839883}
   stepDistance: 1
-  stepFrequency: 0.3
+  stepFrequency: 0.25
   snakeBodyPart: {fileID: 7466241932676359930, guid: 780b6bac7b5f9fd4e83d7bd00440def8, type: 3}
   conectorPrefab: {fileID: 434933653723928239, guid: ca0f18557711f36429a17294a7449657, type: 3}
   snakeInitialSize: 4
