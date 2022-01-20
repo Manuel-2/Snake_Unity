@@ -175,5 +175,7 @@ MonoBehaviour:
   conectorPrefab: {fileID: 434933653723928239, guid: ca0f18557711f36429a17294a7449657, type: 3}
   snakeInitialSize: 4
   snakeSize: 0.8
+  time2DestroySnake: 1
   spawnParticleEffectTag: Explotion1
+  explotionParticleEffectTag: Explotion1
   invincible: 0

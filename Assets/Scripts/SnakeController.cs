@@ -14,7 +14,9 @@ public class SnakeController : MonoBehaviour
     [SerializeField] GameObject conectorPrefab;
     [SerializeField] int snakeInitialSize;
     [SerializeField] float snakeSize;
+    [SerializeField] float time2DestroySnake;
     [SerializeField] string spawnParticleEffectTag;
+    [SerializeField] string explotionParticleEffectTag;
 
     List<Transform> snakeBody = new List<Transform>();
     List<Transform> snakeConectors = new List<Transform>();
@@ -126,7 +128,7 @@ public class SnakeController : MonoBehaviour
         isAlive = false;
         GameManager.sharedInstance.GameOver();
         // call explotion effect
-        // for each explotino do screen shake
+        StartCoroutine("DestroySnake");
     }
 
     public void setDirection(Directions input)
@@ -153,5 +155,20 @@ public class SnakeController : MonoBehaviour
                 Debug.LogWarning("input not match any case");
                 break;
         }
+    }
+
+    IEnumerator DestroySnake()
+    {
+        var delayBetweenExplotions = time2DestroySnake / snakeBody.Count;
+        // travel all snake parts
+        for (int i = 0; i < snakeBody.Count; i++)
+        {
+            ParticlesManager.sharedInstance.SpawnParticleEffect(explotionParticleEffectTag, snakeBody[i].position);
+            Destroy(snakeBody[i].gameObject);
+            if (i != 0)
+                Destroy(snakeConectors[i - 1].gameObject);
+            yield return new WaitForSeconds(delayBetweenExplotions);
+        }
+        Destroy(this.gameObject);
     }
 }
