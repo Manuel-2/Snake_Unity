@@ -25,7 +25,10 @@ public class MenuManager : MonoBehaviour
     public int defaultGameSpeed;
     public float maxFrequency;
     [SerializeField] TextMeshProUGUI gameSpeedDisplayText;
-
+    [Space]
+    public string playerGameColorConfigkey;
+    [SerializeField] int[] colorShiftValues;
+    [SerializeField] int defaultColorIndex;
     private void Awake()
     {
         if (sharedInstance == null)
@@ -36,6 +39,8 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        int gameColor = PlayerPrefs.GetInt(playerGameColorConfigkey, defaultColorIndex);
+        PostProcesingManager.sharedInstance.ChangeHueShiftInProfile(colorShiftValues[gameColor]);
     }
 
     private void Start()
@@ -126,6 +131,35 @@ public class MenuManager : MonoBehaviour
 
         //Update UI
         gameSpeedDisplayText.text = gameSpeed.ToString();
+    }
+
+    public void IncreaseGameColor()
+    {
+        int gameColor = PlayerPrefs.GetInt(playerGameColorConfigkey, defaultColorIndex);
+        gameColor++;
+        if (gameColor > colorShiftValues.Length - 1)
+        {
+            gameColor = 0;
+        }
+
+        PlayerPrefs.SetInt(playerGameColorConfigkey,gameColor);
+
+        //Update view
+        PostProcesingManager.sharedInstance.ChangeHueShiftInProfile(colorShiftValues[gameColor]);
+    }
+    public void DecreaseGameColor()
+    {
+        int gameColor = PlayerPrefs.GetInt(playerGameColorConfigkey, defaultColorIndex);
+        gameColor--;
+        if (gameColor < 0)
+        {
+            gameColor = colorShiftValues.Length - 1;
+        }
+
+        PlayerPrefs.SetInt(playerGameColorConfigkey, gameColor);
+
+        //Update view
+        PostProcesingManager.sharedInstance.ChangeHueShiftInProfile(colorShiftValues[gameColor]);
     }
 
     private void UpdateGameSettingsInfoDisplay()

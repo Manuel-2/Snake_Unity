@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] string highScorePrefix;
     [SerializeField] TextMeshProUGUI inGameHighScoreTextComponent;
     [SerializeField] TextMeshProUGUI endameHighScoreTextComponent;
+    [SerializeField] TextMeshProUGUI mainMenuHighScoreTextComponent;
     [Header("Menu animations")]
     [SerializeField] Animator menuAnimator;
     [SerializeField] string gameOverAnimationTrigger;
@@ -42,6 +43,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateUIInfo();
+    }
+
     public void GameOver()
     {
         menuAnimator.SetTrigger(gameOverAnimationTrigger);
@@ -53,8 +59,7 @@ public class GameManager : MonoBehaviour
         CleanPlayArea();
 
         //Update GameOver UI
-        endGameScoreTextComponent.text = $"{scorePrefix} {score}";
-        endameHighScoreTextComponent.text = $"{highScorePrefix} {highScore}";
+        UpdateUIInfo();
     }
 
     public void AddPoints()
@@ -62,7 +67,7 @@ public class GameManager : MonoBehaviour
         score += pointPerApple;
 
         //Update UI
-        inGameScoreTextComponent.text = $"{scorePrefix} {score}";
+        UpdateUIInfo();
     }
 
     public void StartNewMatch()
@@ -74,8 +79,7 @@ public class GameManager : MonoBehaviour
         GenerateNewRoundOfApples(amountOfApples);
 
         //update UI
-        inGameScoreTextComponent.text = $"{scorePrefix} {score}";
-        inGameHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(playerHighScoreKey, 0)}";
+        UpdateUIInfo();
     }
 
     public void GenerateNewRoundOfApples(int amount)
@@ -113,6 +117,22 @@ public class GameManager : MonoBehaviour
         int posY = Random.Range((int)min.y, (int)max.y + 1);
 
         return new Vector3(posX, posY, 0);
+    }
+
+    private void UpdateUIInfo()
+    {
+        int highScore = PlayerPrefs.GetInt(playerHighScoreKey, 0);
+
+        //main Menu UI
+        mainMenuHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(playerHighScoreKey, 0)}";
+
+        //Ingame UI
+        inGameScoreTextComponent.text = $"{scorePrefix} {score}";
+        inGameHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(playerHighScoreKey, 0)}";
+
+        //GameOver UI
+        endGameScoreTextComponent.text = $"{scorePrefix} {score}";
+        endameHighScoreTextComponent.text = $"{highScorePrefix} {highScore}";
     }
 
     public void CleanPlayArea()
