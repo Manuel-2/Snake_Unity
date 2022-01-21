@@ -30,6 +30,14 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int score;
+    [HideInInspector]
+    public GameState currentGameState;
+
+    public enum GameState
+    {
+        menu,
+        playing
+    }
 
     private void Awake()
     {
@@ -46,10 +54,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateUIInfo();
+        currentGameState = GameState.menu;
     }
 
     public void GameOver()
     {
+        currentGameState = GameState.menu;
+
         menuAnimator.SetTrigger(gameOverAnimationTrigger);
         int highScore = PlayerPrefs.GetInt(playerHighScoreKey, 0);
         if (score > highScore)
@@ -72,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewMatch()
     {
+        currentGameState = GameState.playing;
         Instantiate(snakePrefab, snakeSpawn.position, Quaternion.identity);
         score = 0;
 

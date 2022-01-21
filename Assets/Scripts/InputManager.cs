@@ -16,19 +16,31 @@ public class InputManager : MonoBehaviour
 
         if (verticalInput == 1)
         {
-            SnakeController.sharedInstance.setDirection(SnakeController.Directions.up);
+            if (GameManager.sharedInstance.currentGameState == GameManager.GameState.playing)
+            {
+                SnakeController.sharedInstance.setDirection(SnakeController.Directions.up);
+            }
         }
         else if (horizontalInput == 1)
         {
-            SnakeController.sharedInstance.setDirection(SnakeController.Directions.right);
+            if (GameManager.sharedInstance.currentGameState == GameManager.GameState.playing)
+            {
+                SnakeController.sharedInstance.setDirection(SnakeController.Directions.right);
+            }
         }
         else if (verticalInput == -1)
         {
-            SnakeController.sharedInstance.setDirection(SnakeController.Directions.down);
+            if (GameManager.sharedInstance.currentGameState == GameManager.GameState.playing)
+            {
+                SnakeController.sharedInstance.setDirection(SnakeController.Directions.down);
+            }
         }
         else if (horizontalInput == -1)
         {
-            SnakeController.sharedInstance.setDirection(SnakeController.Directions.left);
+            if (GameManager.sharedInstance.currentGameState == GameManager.GameState.playing)
+            {
+                SnakeController.sharedInstance.setDirection(SnakeController.Directions.left);
+            }
         }
     }
 }
