@@ -13,23 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] string snakeContainerName;
     [SerializeField] string appleTag;
     [SerializeField] int pointPerApple;
-    [SerializeField] string playerHighScoreKey;
+    public string playerHighScoreKey;
     [SerializeField] Vector2 minGameArea, maxGameArea;
     [SerializeField] string appleDestroyExplotionEffectName;
-    [Header("UI Components")]
-    [SerializeField] string scorePrefix;
-    [SerializeField] TextMeshProUGUI inGameScoreTextComponent;
-    [SerializeField] TextMeshProUGUI endGameScoreTextComponent;
-    [SerializeField] string highScorePrefix;
-    [SerializeField] TextMeshProUGUI inGameHighScoreTextComponent;
-    [SerializeField] TextMeshProUGUI endameHighScoreTextComponent;
-    [SerializeField] TextMeshProUGUI mainMenuHighScoreTextComponent;
-    [Header("Menu animations")]
-    [SerializeField] Animator menuAnimator;
-    [SerializeField] string gameOverAnimationTrigger;
-
+    
     [HideInInspector]
     public int score;
+
     [HideInInspector]
     public GameState currentGameState;
 
@@ -53,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateUIInfo();
+        MenuManager.sharedInstance.UpdateScoreDisplay();
         currentGameState = GameState.menu;
     }
 
@@ -61,7 +51,6 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.menu;
 
-        menuAnimator.SetTrigger(gameOverAnimationTrigger);
         int highScore = PlayerPrefs.GetInt(playerHighScoreKey, 0);
         if (score > highScore)
         {
@@ -70,7 +59,8 @@ public class GameManager : MonoBehaviour
         CleanPlayArea();
 
         //Update GameOver UI
-        UpdateUIInfo();
+        MenuManager.sharedInstance.UpdateScoreDisplay();
+        WindowsManager.sharedInstance.ShowGameOverWindow();
     }
 
     public void AddPoints()
@@ -78,7 +68,7 @@ public class GameManager : MonoBehaviour
         score += pointPerApple;
 
         //Update UI
-        UpdateUIInfo();
+        MenuManager.sharedInstance.UpdateScoreDisplay();
     }
 
     public void StartNewMatch()
@@ -91,7 +81,7 @@ public class GameManager : MonoBehaviour
         GenerateNewRoundOfApples(amountOfApples);
 
         //update UI
-        UpdateUIInfo();
+        MenuManager.sharedInstance.UpdateScoreDisplay();
     }
 
     public void GenerateNewRoundOfApples(int amount)
@@ -130,22 +120,6 @@ public class GameManager : MonoBehaviour
         int posY = Random.Range((int)min.y, (int)max.y + 1);
 
         return new Vector3(posX, posY, 0);
-    }
-
-    private void UpdateUIInfo()
-    {
-        int highScore = PlayerPrefs.GetInt(playerHighScoreKey, 0);
-
-        //main Menu UI
-        mainMenuHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(playerHighScoreKey, 0)}";
-
-        //Ingame UI
-        inGameScoreTextComponent.text = $"{scorePrefix} {score}";
-        inGameHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(playerHighScoreKey, 0)}";
-
-        //GameOver UI
-        endGameScoreTextComponent.text = $"{scorePrefix} {score}";
-        endameHighScoreTextComponent.text = $"{highScorePrefix} {highScore}";
     }
 
     public void CleanPlayArea()

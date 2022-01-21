@@ -7,14 +7,14 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager sharedInstance;
 
-    [SerializeField] Animator menuAnimator;
-    [SerializeField] string playGameAnimationTrigger;
-    [SerializeField] string returnMainMenuTrigger;
-    [SerializeField] string retryGameTrigger;
-    [Space]
-    [SerializeField] Animator settingsAnimator;
-    [SerializeField] string toogleSettingsBool;
-    bool showSettings = false;
+    [Header("UI Components")]
+    [SerializeField] string scorePrefix;
+    [SerializeField] TextMeshProUGUI headerScoreTextComponent;
+    [SerializeField] TextMeshProUGUI endGameScoreTextComponent;
+    [SerializeField] string highScorePrefix;
+    [SerializeField] TextMeshProUGUI headerHighScoreTextComponent;
+    [SerializeField] TextMeshProUGUI endameHighScoreTextComponent;
+
     [Header("PlayerSettings")]
     public string playerAppleAmountConfigkey;
     [SerializeField] int minAppleAmount, maxAppleAmount;
@@ -39,8 +39,6 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        int gameColor = PlayerPrefs.GetInt(playerGameColorConfigkey, defaultColorIndex);
-        PostProcesingManager.sharedInstance.ChangeHueShiftInProfile(colorShiftValues[gameColor]);
     }
 
     private void Start()
@@ -50,7 +48,9 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButtonPresed()
     {
-        menuAnimator.SetTrigger(playGameAnimationTrigger);
+        WindowsManager.sharedInstance.HideAllWindows();
+        WindowsManager.sharedInstance.HidePlayButton();
+        StartGame();
     }
 
     public void StartGame()
@@ -61,22 +61,6 @@ public class MenuManager : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
-    }
-
-    public void Return2MainMenu()
-    {
-        menuAnimator.SetTrigger(returnMainMenuTrigger);
-    }
-
-    public void RetryGame()
-    {
-        menuAnimator.SetTrigger(retryGameTrigger);
-    }
-
-    public void ToggleSettings()
-    {
-        showSettings = !showSettings;
-        settingsAnimator.SetBool(toogleSettingsBool, showSettings);
     }
 
     public void IncreaseAppleAmount()
@@ -169,5 +153,23 @@ public class MenuManager : MonoBehaviour
 
         int gameSpeed = PlayerPrefs.GetInt(playerGameSpeedConfigkey, defaultGameSpeed);
         gameSpeedDisplayText.text = gameSpeed.ToString();
+
+        int gameColor = PlayerPrefs.GetInt(playerGameColorConfigkey, defaultColorIndex);
+        PostProcesingManager.sharedInstance.ChangeHueShiftInProfile(colorShiftValues[gameColor]);
+    }
+
+    public void UpdateScoreDisplay()
+    {
+        int score = GameManager.sharedInstance.score;
+        string highScoreKey = GameManager.sharedInstance.playerHighScoreKey;
+        int highScore = PlayerPrefs.GetInt(highScoreKey, 0);
+
+        //Ingame UI
+        headerScoreTextComponent.text = $"{scorePrefix} {score}";
+        headerHighScoreTextComponent.text = $"{highScorePrefix} {PlayerPrefs.GetInt(highScoreKey, 0)}";
+
+        //GameOver UI delete
+        endGameScoreTextComponent.text = $"{scorePrefix} {score}";
+        endameHighScoreTextComponent.text = $"{highScorePrefix} {highScore}";
     }
 }

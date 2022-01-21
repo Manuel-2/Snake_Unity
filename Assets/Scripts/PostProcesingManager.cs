@@ -15,6 +15,7 @@ public class PostProcesingManager : MonoBehaviour
             sharedInstance = this;
         else
             Destroy(this.gameObject);
+
     }
 
     IEnumerator ColorLoop()
