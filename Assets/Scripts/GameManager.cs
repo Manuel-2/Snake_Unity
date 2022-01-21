@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
             if(maxGameArea.magnitude <= 0)
             {
                 Debug.LogWarning("El area de juego es 0, tienes que configurar el vector de maxGameArea en el GameManager");
+                return;
             }
 
             Vector3 ApplePosition = GenerateRandomPosition(this.minGameArea, this.maxGameArea);
