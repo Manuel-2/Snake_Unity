@@ -2044,6 +2044,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2206,6 +2207,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 519420030}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59700678e0092463cb106a3995cd22a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanlineIntensity: 20
+  scanlineWidth: 1
 --- !u!1 &558273677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,7 +6442,7 @@ MonoBehaviour:
   playerGameSpeedConfigkey: PlayerSettingsGameSpeedTestKey01
   minGameSpeed: 1
   maxGameSpeed: 5
-  defaultGameSpeed: 3
+  defaultGameSpeed: 4
   maxFrequency: 0.5
   gameSpeedDisplayText: {fileID: 1452661175}
   playerGameColorConfigkey: PlayerGameColorTestKey01
