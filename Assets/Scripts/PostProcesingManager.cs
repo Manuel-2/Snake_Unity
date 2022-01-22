@@ -8,14 +8,24 @@ public class PostProcesingManager : MonoBehaviour
     public static PostProcesingManager sharedInstance;
 
     [SerializeField] PostProcessVolume volume;
+    [SerializeField] int[] lightColors;
 
+    int currentShiftValue;
     private void Awake()
     {
-        if(sharedInstance == null)
+        if (sharedInstance == null)
             sharedInstance = this;
         else
             Destroy(this.gameObject);
+        
+    }
 
+    private void Start()
+    {
+        var arr = MenuManager.sharedInstance.colorShiftValues;
+        int index = MenuManager.sharedInstance.defaultColorIndex;
+        currentShiftValue = PlayerPrefs.GetInt(MenuManager.sharedInstance.playerGameColorConfigkey, arr[index]);
+        CheckContrast(currentShiftValue);
     }
 
     IEnumerator ColorLoop()
@@ -25,7 +35,7 @@ public class PostProcesingManager : MonoBehaviour
         {
             ChangeHueShiftInProfile(index);
             index++;
-            if(index > 180)
+            if (index > 180)
             {
                 index = -180;
             }
@@ -38,6 +48,25 @@ public class PostProcesingManager : MonoBehaviour
         if (volume.profile.TryGetSettings(out ColorGrading colorGrading))
         {
             colorGrading.hueShift.value = v;
+            CheckContrast(v);
+        }
+    }
+
+    private void CheckContrast(int v)
+    {
+        bool thereWasLight = false;
+        for (int i = 0; i < lightColors.Length; i++)
+        {
+            if (v == lightColors[i])
+            {
+                thereWasLight = true;
+                MenuManager.sharedInstance.ChangeHeadersFont2Dark();
+                return;
+            }
+        }
+        if (thereWasLight == false)
+        {
+            MenuManager.sharedInstance.ChangeHeadersFont2Light();
         }
     }
 }

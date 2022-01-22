@@ -2952,6 +2952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 519420030}
+  lightColors: 3200000078000000b4000000
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5534,6 +5535,17 @@ MonoBehaviour:
   highScorePrefix: High Score
   headerHighScoreTextComponent: {fileID: 858838697}
   endameHighScoreTextComponent: {fileID: 942093865}
+  AllGameWindowsHeaders:
+  - {fileID: 482299770}
+  - {fileID: 1857862334}
+  - {fileID: 858838697}
+  - {fileID: 154505212}
+  - {fileID: 383476145}
+  - {fileID: 1693015265}
+  - {fileID: 1847405185}
+  - {fileID: 1478902937}
+  DarkFontColor: {r: 0, g: 0, b: 0, a: 1}
+  LightFontColor: {r: 1, g: 1, b: 1, a: 1}
   playerAppleAmountConfigkey: PlayerSettingsAppleAmountTestKey01
   minAppleAmount: 1
   maxAppleAmount: 10
@@ -8439,7 +8451,7 @@ GameObject:
   - component: {fileID: 1478902938}
   - component: {fileID: 1478902937}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PlayButtonText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

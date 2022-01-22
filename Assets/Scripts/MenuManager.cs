@@ -14,6 +14,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] string highScorePrefix;
     [SerializeField] TextMeshProUGUI headerHighScoreTextComponent;
     [SerializeField] TextMeshProUGUI endameHighScoreTextComponent;
+    [SerializeField] TextMeshProUGUI[] AllGameWindowsHeaders;
+    [SerializeField] Color DarkFontColor;
+    [SerializeField] Color LightFontColor;
 
     [Header("PlayerSettings")]
     public string playerAppleAmountConfigkey;
@@ -27,8 +30,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI gameSpeedDisplayText;
     [Space]
     public string playerGameColorConfigkey;
-    [SerializeField] int[] colorShiftValues;
-    [SerializeField] int defaultColorIndex;
+    public int[] colorShiftValues;
+    public int defaultColorIndex;
     private void Awake()
     {
         if (sharedInstance == null)
@@ -171,5 +174,25 @@ public class MenuManager : MonoBehaviour
         //GameOver UI delete
         endGameScoreTextComponent.text = $"{scorePrefix} {score}";
         endameHighScoreTextComponent.text = $"{highScorePrefix} {highScore}";
+    }
+
+    public void ChangeHeadersFont2Dark()
+    {
+        foreach (var header in AllGameWindowsHeaders)
+        {
+            header.color = DarkFontColor;
+        }
+    }
+
+    public void ChangeHeadersFont2Light()
+    {
+        foreach (var header in AllGameWindowsHeaders)
+        {
+            header.color = LightFontColor;
+            if(header.gameObject.name.Equals("PlayButtonText (TMP)"))
+            {
+                header.color = Color.red;
+            }
+        }
     }
 }
