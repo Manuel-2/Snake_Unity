@@ -14,6 +14,7 @@ public class WindowsManager : MonoBehaviour
     bool controlsWindowIsActive;
 
     [SerializeField] GameObject GameOverWindow;
+    [SerializeField] AudioClip ErrorWindowSound;
     [SerializeField] GameObject playButton;
 
     private void Awake()
@@ -50,6 +51,7 @@ public class WindowsManager : MonoBehaviour
     public void ShowGameOverWindow()
     {
         GameOverWindow.SetActive(true);
+        AudioManager.sharedInstance.PlaySound(ErrorWindowSound);
     }
     public void ShowPlayButton()
     {

@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appleTag: Apple
   bodyPartTag: BodyPart
+  EatAppleSound: {fileID: 8300000, guid: 00e5e5a8b95c35d40afc85a76b2e22e8, type: 3}
+  hitSound: {fileID: 8300000, guid: 0923ff8245ae42d47af0ed4c535e271b, type: 3}
 --- !u!1 &2546933674219512632
 GameObject:
   m_ObjectHideFlags: 0
