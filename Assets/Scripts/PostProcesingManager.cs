@@ -17,15 +17,16 @@ public class PostProcesingManager : MonoBehaviour
             sharedInstance = this;
         else
             Destroy(this.gameObject);
-        
+
     }
 
     private void Start()
     {
         var arr = MenuManager.sharedInstance.colorShiftValues;
         int index = MenuManager.sharedInstance.defaultColorIndex;
-        currentShiftValue = PlayerPrefs.GetInt(MenuManager.sharedInstance.playerGameColorConfigkey, arr[index]);
-        CheckContrast(currentShiftValue);
+
+        currentShiftValue = PlayerPrefs.GetInt(MenuManager.sharedInstance.playerGameColorConfigkey, index);
+        CheckContrast(arr[currentShiftValue]);
     }
 
     IEnumerator ColorLoop()
@@ -54,19 +55,15 @@ public class PostProcesingManager : MonoBehaviour
 
     private void CheckContrast(int v)
     {
-        bool thereWasLight = false;
         for (int i = 0; i < lightColors.Length; i++)
         {
             if (v == lightColors[i])
             {
-                thereWasLight = true;
+
                 MenuManager.sharedInstance.ChangeHeadersFont2Dark();
                 return;
             }
         }
-        if (thereWasLight == false)
-        {
-            MenuManager.sharedInstance.ChangeHeadersFont2Light();
-        }
+        MenuManager.sharedInstance.ChangeHeadersFont2Light();
     }
 }
