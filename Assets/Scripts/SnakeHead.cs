@@ -11,6 +11,7 @@ public class SnakeHead : MonoBehaviour
         if (collision.gameObject.CompareTag(appleTag))
         {
             SnakeController.sharedInstance.EatApple();
+            ParticlesManager.sharedInstance.SpawnParticleEffect("AppleExplotion",collision.transform.position);
             ObjectPooler.sharedInstance.ReturnItem(collision.gameObject);
         }else if (collision.gameObject.CompareTag(bodyPartTag) && SnakeController.sharedInstance.invincible == false)
         {

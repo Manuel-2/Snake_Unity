@@ -9250,6 +9250,8 @@ MonoBehaviour:
     amountToPool: 5
   - prefabToPool: {fileID: 8699942055308333121, guid: 076301c0cea43fd42ac05ea6b7a2aa8b, type: 3}
     amountToPool: 50
+  - prefabToPool: {fileID: 696239458602780618, guid: fdb40b57f2bbe7341b62658706090c34, type: 3}
+    amountToPool: 5
   pool: {fileID: 894461797}
 --- !u!1 &1693015263
 GameObject:
@@ -9436,7 +9438,7 @@ MonoBehaviour:
   playerHighScoreKey: HighScoreTestKey01
   minGameArea: {x: 0, y: 0}
   maxGameArea: {x: 20, y: 11}
-  appleDestroyExplotionEffectName: Explotion1
+  appleDestroyExplotionEffectName: AppleExplotion
   score: 0
   currentGameState: 0
 --- !u!1 &1731752045
