@@ -8,11 +8,13 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] float minApplePitch, maxApplePitch;
+    [SerializeField] AudioClip clickSound;
+    [SerializeField] float minClickPitch, maxClickPitch;
 
     private void Awake()
     {
-        
-        if(sharedInstance == null)
+
+        if (sharedInstance == null)
         {
             sharedInstance = this;
         }
@@ -29,17 +31,25 @@ public class AudioManager : MonoBehaviour
 
         audioSource.pitch = pitch;
         audioSource.PlayOneShot(audio);
-        StartCoroutine(RestoreDefaultPitch(duration));
+        Invoke("RestoreDefaultPitch", duration);
     }
 
     public void PlaySound(AudioClip audio)
     {
         audioSource.PlayOneShot(audio);
     }
-
-    IEnumerator RestoreDefaultPitch(float delay)
+    public void PlayClickSound()
     {
-        yield return new WaitForSeconds(delay);
+        float pitch = Random.Range(minClickPitch, maxClickPitch);
+        float duration = clickSound.length;
+
+        audioSource.pitch = pitch;
+        audioSource.PlayOneShot(clickSound);
+        Invoke("RestoreDefaultPitch",duration);
+    }
+
+    private void RestoreDefaultPitch()
+    {
         audioSource.pitch = 1;
     }
 }
