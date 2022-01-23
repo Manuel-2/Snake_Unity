@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering.PostProcessing;
+using MilkShake;
 using UnityEngine;
 
 public class PostProcesingManager : MonoBehaviour
@@ -9,6 +10,11 @@ public class PostProcesingManager : MonoBehaviour
 
     [SerializeField] PostProcessVolume volume;
     [SerializeField] int[] lightColors;
+    [Header("Camera Shake")]
+    [SerializeField] Shaker cameraShaker;
+    [SerializeField] ShakePreset ShakePreset;
+    [SerializeField] Animator cameraAnim;
+    [SerializeField] string hitTrigerName;
 
     int currentShiftValue;
     private void Awake()
@@ -65,5 +71,11 @@ public class PostProcesingManager : MonoBehaviour
             }
         }
         MenuManager.sharedInstance.ChangeHeadersFont2Light();
+    }
+
+    public void PlayHitEffect()
+    {
+        cameraShaker.Shake(ShakePreset);
+        cameraAnim.SetTrigger(hitTrigerName);
     }
 }

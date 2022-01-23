@@ -17,6 +17,7 @@ public class SnakeHead : MonoBehaviour
         {
             SnakeController.sharedInstance.GameOver();
             AudioManager.sharedInstance.PlaySound(hitSound);
+            PostProcesingManager.sharedInstance.PlayHitEffect();
         }
     }
 
