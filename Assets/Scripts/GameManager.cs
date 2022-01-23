@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         //Update GameOver UI
         MenuManager.sharedInstance.UpdateScoreDisplay();
-        WindowsManager.sharedInstance.ShowGameOverWindow();
+        // WindowsManager.sharedInstance.ShowGameOverWindow();
     }
 
     public void AddPoints()

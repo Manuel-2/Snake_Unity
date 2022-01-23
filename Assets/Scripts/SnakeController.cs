@@ -176,6 +176,7 @@ public class SnakeController : MonoBehaviour
                 Destroy(snakeConectors[i - 1].gameObject);
             yield return new WaitForSeconds(delayBetweenExplotions);
         }
+        WindowsManager.sharedInstance.ShowGameOverWindow();
         Destroy(this.gameObject);
     }
 }
